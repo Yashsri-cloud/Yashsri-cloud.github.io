@@ -670,3 +670,27 @@ document.body.style.opacity="1";
 console.log("Website Loaded Successfully.");
 
 };
+// ==========================
+// Light / Dark Theme Toggle
+// ==========================
+
+const toggle = document.getElementById("theme-toggle");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+}
+
+// Toggle theme
+toggle.addEventListener("change", function () {
+
+    if (this.checked) {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
+
+});
